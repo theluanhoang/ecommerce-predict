@@ -11,7 +11,7 @@ RUN curl -sSL https://install.python-poetry.org | POETRY_HOME=/opt/poetry python
 # Copy poetry.lock* in case it doesn't exist in the repo
 COPY ./pyproject.toml ./poetry.lock* /app/
 
-# Run poetry lock --no-update to sync lock file
+# Run poetry lock --no-update to sync lock 
 RUN poetry lock --no-update
 
 # Allow installing dev dependencies to run tests
