@@ -12,7 +12,7 @@ jobs:
   deploy:
     runs-on: self-hosted
     env:
-      ENVIRONMENT: production
+      ENVIRONMENT: ECOMMERCE_ENV
       DOMAIN: ${{ secrets.DOMAIN }}
       STACK_NAME: ${{ secrets.STACK_NAME }}
       SECRET_KEY: ${{ secrets.SECRET_KEY }}
