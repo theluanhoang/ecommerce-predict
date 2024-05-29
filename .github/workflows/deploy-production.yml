@@ -17,7 +17,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Write environment variables to .env file
+      - name: Write environments variables to .env file
         run: |
           echo "ENVIRONMENT=${{ secrets.ENVIRONMENT }}" >> .env
           echo "DOMAIN=${{ secrets.DOMAIN }}" >> .env
