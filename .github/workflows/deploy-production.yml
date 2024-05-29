@@ -24,12 +24,14 @@ jobs:
       EMAILS_FROM_EMAIL: ${{ secrets.EMAILS_FROM_EMAIL }}
       POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
       SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
+      API_KEY: ${{ secrets.API_KEY }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
       - name: Print environment variables
         run: |
+          echo "API_KEY: $API_KEY"
           echo "ENVIRONMENT: $ENVIRONMENT"
           echo "DOMAIN: $DOMAIN"
           echo "STACK_NAME: $STACK_NAME"
