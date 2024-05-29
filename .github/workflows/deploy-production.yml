@@ -11,6 +11,8 @@ on:
 jobs:
   deploy:
     runs-on: self-hosted
+    environment:
+      name: production
     env:
       ENVIRONMENT: production
       DOMAIN: ${{ secrets.DOMAIN }}
