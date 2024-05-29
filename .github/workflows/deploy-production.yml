@@ -24,7 +24,7 @@ jobs:
       EMAILS_FROM_EMAIL: ${{ secrets.EMAILS_FROM_EMAIL }}
       POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
       SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
-      ECOMMERCE_API_KEY: ${{ secrets }}
+      ECOMMERCE_API_KEY: ${{ secrets.API_KEY }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
