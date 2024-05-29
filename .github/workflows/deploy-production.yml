@@ -31,7 +31,7 @@ jobs:
 
       - name: Print environment variables
         run: |
-          echo "ECOMMERCE_API_KEY::: $ECOMMERCE_API_KEY"
+          echo "ECOMMERCE_APIKEY::: $ECOMMERCE_API_KEY"
           echo "ENVIRONMENT: $ENVIRONMENT"
           echo "DOMAIN: $DOMAIN"
           echo "STACK_NAME: $STACK_NAME"
