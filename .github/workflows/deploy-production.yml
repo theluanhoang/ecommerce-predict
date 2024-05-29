@@ -10,8 +10,7 @@ on:
 
 jobs:
   deploy:
-    runs-on:
-      - self-hosted
+    runs-on: self-hosted
     env:
       ENVIRONMENT: production
       DOMAIN: ${{ secrets.DOMAIN }}
@@ -28,5 +27,21 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Print environment variables
+        run: |
+          echo "ENVIRONMENT: $ENVIRONMENT"
+          echo "DOMAIN: $DOMAIN"
+          echo "STACK_NAME: $STACK_NAME"
+          echo "SECRET_KEY: $SECRET_KEY"
+          echo "FIRST_SUPERUSER: $FIRST_SUPERUSER"
+          echo "FIRST_SUPERUSER_PASSWORD: $FIRST_SUPERUSER_PASSWORD"
+          echo "SMTP_HOST: $SMTP_HOST"
+          echo "SMTP_USER: $SMTP_USER"
+          echo "SMTP_PASSWORD: $SMTP_PASSWORD"
+          echo "EMAILS_FROM_EMAIL: $EMAILS_FROM_EMAIL"
+          echo "POSTGRES_PASSWORD: $POSTGRES_PASSWORD"
+          echo "SENTRY_DSN: $SENTRY_DSN"
+
       - run: docker-compose --file docker-compose.yml --project-name ${{ secrets.STACK_NAME }} build
       - run: docker-compose --file docker-compose.yml --project-name ${{ secrets.STACK_NAME }} up -d
