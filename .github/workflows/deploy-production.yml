@@ -44,9 +44,13 @@ jobs:
           echo "DOCKER_IMAGE_BACKEND=${{ secrets.DOCKER_IMAGE_BACKEND }}" >> .env
           echo "DOCKER_IMAGE_FRONTEND=${{ secrets.DOCKER_IMAGE_FRONTEND }}" >> .env
           echo "GEMINI_API_KEY=${{ secrets.GEMINI_API_KEY }}" >> .env
+          echo "VITE_API_URL=${{ secrets.VITE_API_URL }}" >> frontend/.env
 
       - name: Print environment variables
         run: cat .env
+
+      - name: Print environment variables of frontend
+        run: cat frontend/.env
 
       - name: Build Docker containers
         run: docker-compose --file docker-compose.yml --project-name ${{ secrets.STACK_NAME }} build

@@ -68,8 +68,6 @@ services:
     networks:
       - traefik-public
       - default
-    env_file:
-      - ./.env
     build:
       context: ./frontend
       args:
