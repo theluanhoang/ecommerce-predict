@@ -13,9 +13,11 @@ ARG VITE_API_URL=${VITE_API_URL}
 
 RUN npm run build
 
+# Debugging step to check if the build was successful
+RUN ls -la /app/dist
 
 # Stage 1, based on Nginx, to have only the compiled app, ready for production with Nginx
-FROM nginx:1
+FROM nginx:stable-alpine
 
 COPY --from=build-stage /app/dist/ /usr/share/nginx/html
 
@@ -28,5 +30,3 @@ RUN if [ -d /usr/share/nginx/html ]; then \
     else \
         echo "Error: Frontend files not found in build-stage!"; exit 1; \
     fi
-
-# ... (các lệnh khác trong stage Nginx)
