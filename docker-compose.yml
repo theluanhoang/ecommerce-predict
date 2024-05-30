@@ -108,7 +108,7 @@ services:
     depends_on:
       - frontend
     ports:
-      - "80:80"
+      - "8001:80"
     labels:
       - traefik.enable=true
       - traefik.docker.network=traefik-public
