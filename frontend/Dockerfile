@@ -24,7 +24,7 @@ COPY --from=build-stage /app/dist/ /usr/share/nginx/html
 COPY ./nginx.conf /etc/nginx/conf.d/default.conf
 COPY ./nginx-backend-not-found.conf /etc/nginx/extra-conf.d/backend-not-found.conf
 
-# In thông báo xác nhận
+# In thông báo xác nhận nhá
 RUN if [ -d /usr/share/nginx/html ]; then \
         echo "Frontend files copied successfully!"; \
     else \
