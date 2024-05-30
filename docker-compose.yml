@@ -100,15 +100,17 @@ services:
       # to disable www redirection remove the section: ${STACK_NAME?Variable not set}-www-redirect,
       - traefik.http.routers.${STACK_NAME?Variable not set}-frontend-http.middlewares=https-redirect,${STACK_NAME?Variable not set}-www-redirect
   nginx:
-    image: nginx:stable-alpine
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
     restart: always
+    ports:
+      - "8001:80"
     networks:
       - traefik-public
       - default
     depends_on:
       - frontend
-    ports:
-      - "8001:80"
     labels:
       - traefik.enable=true
       - traefik.docker.network=traefik-public
