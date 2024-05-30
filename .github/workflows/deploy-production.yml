@@ -51,6 +51,9 @@ jobs:
 
       - name: Print environment variables of frontend
         run: cat frontend/.env
+
+      - name: Stop running containers
+        run: docker-compose --file docker-compose.yml --project-name ${{ secrets.STACK_NAME }} down
       
       - name: Remove existing Docker images
         run: docker rmi $(docker images -q) -f
