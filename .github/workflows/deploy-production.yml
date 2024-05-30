@@ -53,7 +53,7 @@ jobs:
         run: cat frontend/.env
 
       - name: Build Docker containers
-        run: docker-compose --file docker-compose.yml --project-name ${{ secrets.STACK_NAME }} build
+        run: docker-compose --file docker-compose.yml --project-name ${{ secrets.STACK_NAME }} build --no-cache
 
       - name: Start Docker containers
         run: docker-compose up -d
